@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Types of AI - Complete Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            transition: all 0.3s ease;
+            min-height: 100vh;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #ecf0f1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dark-mode h1 {
+            background: linear-gradient(45deg, #74b9ff, #a29bfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .toggle-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .toggle-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .dark-mode .toggle-btn {
+            background: linear-gradient(45deg, #0984e3, #00cec9);
+        }
+
+        .toggle-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .ai-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid #667eea;
+        }
+
+        .dark-mode .ai-card {
+            background: rgba(44, 62, 80, 0.95);
+            border-left: 5px solid #74b9ff;
+        }
+
+        .ai-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+        }
+
+        .ai-card h3 {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .dark-mode .ai-card h3 {
+            color: #74b9ff;
+        }
+
+        .ai-card h3::before {
+            content: "🤖";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .ai-type {
+            background: #ff6b6b;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .function-list {
+            list-style: none;
+        }
+
+        .function-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .dark-mode .function-list li {
+            border-bottom: 1px solid #34495e;
+        }
+
+        .function-list li::before {
+            content: "✅";
+            margin-right: 10px;
+        }
+
+        .dark-mode .function-list li::before {
+            content: "✨";
+        }
+
+        .card-1 { border-left-color: #ff6b6b; }
+        .card-2 { border-left-color: #ffd93d; }
+        .card-3 { border-left-color: #6c5ce7; }
+        .card-4 { border-left-color: #00b894; }
+        .card-5 { border-left-color: #fd79a8; }
+        .card-6 { border-left-color: #00cec9; }
+
+        .dark-mode .card-1 { border-left-color: #ff7675; }
+        .dark-mode .card-2 { border-left-color: #fdcb6e; }
+        .dark-mode .card-3 { border-left-color: #a29bfe; }
+        .dark-mode .card-4 { border-left-color: #55efc4; }
+        .dark-mode .card-5 { border-left-color: #e84393; }
+        .dark-mode .card-6 { border-left-color: #81ecec; }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .ai-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Artificial Intelligence Types & Functions</h1>
+            <p>Complete Guide to Modern AI Technologies</p>
+        </header>
+
+        <div class="toggle-container">
+            <button class="toggle-btn" onclick="toggleDarkMode()">
+                🌙 Switch to Dark Mode
+            </button>
+        </div>
+
+        <div class="ai-grid">
+            <!-- Card 1 -->
+            <div class="ai-card card-1">
+                <h3>Reactive Machines</h3>
+                <span class="ai-type">Basic AI</span>
+                <ul class="function-list">
+                    <li>Respond to current scenarios only</li>
+                    <li>No memory of past experiences</li>
+                    <li>Excellent for specific tasks</li>
+                    <li>Examples: Chess-playing AI, Spam filters</li>
+                </ul>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="ai-card card-2">
+                <h3>Limited Memory AI</h3>
+                <span class="ai-type">Intermediate AI</span>
+                <ul class="function-list">
+                    <li>Learn from historical data</li>
+                    <li>Make informed decisions</li>
+                    <li>Used in self-driving cars</li>
+                    <li>Examples: Chatbots, Voice assistants</li>
+                </ul>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="ai-card card-3">
+                <h3>Theory of Mind AI</h3>
+                <span class="ai-type">Advanced AI</span>
+                <ul class="function-list">
+                    <li>Understand human emotions</li>
+                    <li>Social interaction capabilities</li>
+                    <li>Predict behavior and intentions</li>
+                    <li>Future technology</li>
+                </ul>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="ai-card card-4">
+                <h3>Self-Aware AI</h3>
+                <span class="ai-type">Super AI</span>
+                <ul class="function-list">
+                    <li>Human-level consciousness</li>
+                    <li>Self-awareness and emotions</li>
+                    <li>Independent decision making</li>
+                    <li>Theoretical concept</li>
+                </ul>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="ai-card card-5">
+                <h3>Machine Learning</h3>
+                <span class="ai-type">Practical AI</span>
+                <ul class="function-list">
+                    <li>Learn from data patterns</li>
+                    <li>Improve performance over time</li>
+                    <li>Used in recommendations</li>
+                    <li>Examples: Netflix, Amazon suggestions</li>
+                </ul>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="ai-card card-6">
+                <h3>Neural Networks</h3>
+                <span class="ai-type">Deep Learning</span>
+                <ul class="function-list">
+                    <li>Mimic human brain structure</li>
+                    <li>Image and speech recognition</li>
+                    <li>Complex pattern detection</li>
+                    <li>Examples: Face recognition, Medical diagnosis</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2024 AI Education Platform | Learn about Artificial Intelligence</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            const button = document.querySelector('.toggle-btn');
+            
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                button.textContent = '☀️ Switch to Light Mode';
+                button.style.background = 'linear-gradient(45deg, #0984e3, #00cec9)';
+            } else {
+                button.textContent = '🌙 Switch to Dark Mode';
+                button.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a24)';
+            }
+        }
+
+        // Add some interactive animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.ai-card');
+            
+            cards.forEach((card, index) => {
+                card.style.animation = `fadeInUp 0.6s ease ${index * 0.1}s both`;
+            });
+        });
+
+        // Add CSS animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
